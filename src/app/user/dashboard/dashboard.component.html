@@ -1,0 +1,77 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile
+      *ngFor="let card of cards | async"
+      [colspan]="card.cols"
+      [rowspan]="card.rows"
+    >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{ card.title }}
+            <button
+              mat-icon-button
+              class="more-button"
+              [matMenuTriggerFor]="menu"
+              aria-label="Toggle menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item color="primary" (click)="openEditDialog()">
+                <mat-icon>edit</mat-icon> Editar
+              </button>
+              <button mat-menu-item><mat-icon>delete</mat-icon>Eliminar</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content
+          class="dashboard-card-content"
+          *ngIf="card.title == 'Perfil'"
+        >
+          <h3>
+            <strong>{{ user.nombre }}</strong>
+          </h3>
+          <p>{{ user.dni }}</p>
+          <p>{{ user.mobile }}</p>
+          <p>{{ user.email }}</p>
+          <p>
+            <strong>{{ user.empresa }}</strong>
+          </p>
+          <p>{{ user.cif }}</p>
+          <p>{{ user.sede }}</p>
+        </mat-card-content>
+        <mat-card-content
+          class="dashboard-card-content"
+          *ngIf="card.title == 'Estrellas'"
+        >
+          <h3>
+            <strong>Te quedan 12 Estrellas</strong>
+          </h3>
+          <p>
+            Cada estrella te permitira:
+          </p>
+          <mat-list dense>
+            <mat-list-item>
+              Dar de alta un horario indefinidamente.
+            </mat-list-item>
+            <mat-list-item>
+              Dar de alta un trabajador.
+            </mat-list-item>
+            <mat-list-item>
+              Suscripcion anual de servicio de fichar para 1 trabajador.
+            </mat-list-item>
+          </mat-list>
+          <p>
+            El precio de la estrella es de 1€ y se compran en packs.
+          </p>
+          <p>
+            <strong>Compra estrellas!</strong>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

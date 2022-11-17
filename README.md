@@ -1,27 +1,25 @@
-# FichajesNg
+# Pendiente
+- UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+- Horarios / Tasks
+- Stripe y sistema de puntos.
+- Eventos todo el día como ordenes: (Watch events - oauth¿?¿?)
+    - Hoja mes evento.
+    - Firmar.
+    - Corregir.
 
-## Development server
+- Registro de meses firmados por cada trabajador.
+- Corrección de firma.
+- HOJA DE FIRMAS con todos los datos maquedatos.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# MODOS CONFIGURACION DE CALENDARIO
+- Modo libre, el trabajador puede fichar en modo abierto y por comandos.
+- Modo comando, el trabajador puede fichar en modo comando.
+- Modo cerrado, el trabajador no puede fichar, puede llamar comandos para firmar. (Este nodo es para fichar en puntos de trabajo con otros sistemas)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# UI
+- Ejemplo con workers.
+- General
+- Componentes

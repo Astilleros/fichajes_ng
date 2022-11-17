@@ -1,0 +1,49 @@
+<div>
+  <mat-icon (click)="previousMonth()">arrow_back</mat-icon>
+  {{ month_str }}/{{ year_str }}
+  <mat-icon (click)="nextMonth()">arrow_forward</mat-icon>
+  
+  <mat-list-item>
+    <button
+      mat-raised-button
+      color="warn"
+      (click)="dowloadPdf()"
+    >
+      <mat-icon>delete</mat-icon> Descargar Ficha
+    </button>
+  </mat-list-item>
+</div>
+
+<app-chart-linear-gauge
+  [value]="worked.hours"
+  [previousValue]="168"
+  [max]="200"
+  units="horas trabajadas"
+  [view]="[200, 200]"
+></app-chart-linear-gauge>
+<app-chart-linear-gauge
+  [value]="worked.days"
+  [previousValue]="22"
+  [max]="31"
+  units="días trabajados"
+  [view]="[200, 200]"
+></app-chart-linear-gauge>
+
+<ngx-charts-bar-vertical-stacked
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="multi"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [animations]="animations"
+  [barPadding]="3"
+  [showDataLabel]="showDataLabel"
+  [yAxisTicks]="yAxisTicks"
+>
+</ngx-charts-bar-vertical-stacked>
