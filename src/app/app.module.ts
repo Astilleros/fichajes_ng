@@ -20,6 +20,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import {Clipboard} from '@angular/cdk/clipboard';
 
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -40,6 +41,7 @@ import { EventsMonthsComponent } from './worker/events-months/events-months.comp
 import { ChartLinearGaugeComponent } from './chart/chart-linear-gauge/chart-linear-gauge.component';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { UsersEditComponent } from './user/user-edit/user-edit.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -80,11 +82,13 @@ import { UsersEditComponent } from './user/user-edit/user-edit.component';
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
-    NgxChartsModule
+    NgxChartsModule,
+    MatSelectModule
   ],
   providers: [
     authInterceptorProviders, 
-    AuthGuardService
+    AuthGuardService,
+    Clipboard
   ],
   bootstrap: [AppComponent]
 })

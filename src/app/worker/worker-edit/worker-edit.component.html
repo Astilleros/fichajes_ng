@@ -30,6 +30,18 @@
         <input matInput type="text" formControlName="mobile" />
       </mat-form-field>
     </mat-list-item>
+
+    <mat-list-item>
+      <mat-form-field appearance="fill">
+        <mat-label>Modo de registro</mat-label>
+        <mat-select formControlName="mode" >
+          <mat-option *ngFor="let mode of modes" [value]="mode.value">
+            {{mode.key}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+
     <mat-list-item>
       <button mat-icon-button aria-label="close dialog" mat-dialog-close (click)="close()">
         <mat-icon>close</mat-icon>

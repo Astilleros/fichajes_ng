@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { TokenStorageService } from '../token-storage.service';
 
 @Component({
   selector: 'app-register',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WorkersService } from '../workers.service';
-import { Worker } from '../worker.model';
+import { WorkersService } from '../shared/workers.service';
+import { Worker } from '../shared/worker.model';
 import {
   animate,
   state,
@@ -13,6 +13,7 @@ import { WorkerCreateComponent } from '../worker-create/worker-create.component'
 import { WorkersIdComponent } from '../worker-edit/worker-edit.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { firstValueFrom } from 'rxjs';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-socs-list',
@@ -32,7 +33,8 @@ import { firstValueFrom } from 'rxjs';
 export class WorkerListComponent implements OnInit {
   constructor(
     private Dialogs: MatDialog,
-    private workersService: WorkersService
+    private workersService: WorkersService,
+    private Clipboard: Clipboard
   ) {}
 
   now = new Date();
@@ -99,6 +101,10 @@ export class WorkerListComponent implements OnInit {
             ...updated,
           }
     );
+  }
+
+  copyCalendarUrlToClipboard(worker: Worker) {
+    this.Clipboard.copy(`https://calendar.google.com/calendar/u/0/r?cid=${worker.calendar}`)
   }
 
   async unshareCalendar(worker: Worker): Promise<void> {

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Worker } from '../worker.model';
-import { WorkersService } from '../workers.service';
+import { Worker } from '../shared/worker.model';
+import { WorkersService } from '../shared/workers.service';
 
 @Component({
   selector: 'app-worker-create',

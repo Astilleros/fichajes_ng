@@ -82,6 +82,15 @@
               <mat-icon>link_off</mat-icon> Desvincular calendario
             </button>
           </mat-list-item>
+          <mat-list-item>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="copyCalendarUrlToClipboard(element)"
+            >
+              <mat-icon>content_copy</mat-icon> Copiar url de calendario
+            </button>
+          </mat-list-item>
           <mat-list-item *ngIf="element.status !== 2">
             <button
               mat-raised-button

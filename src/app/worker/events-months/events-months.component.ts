@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import { firstValueFrom } from 'rxjs';
-import { WorkersService } from 'src/app/worker/workers.service';
-import { Worker } from 'src/app/worker/worker.model';
+import { WorkersService } from 'src/app/worker/shared/workers.service';
+import { Worker } from 'src/app/worker/shared/worker.model';
 
 @Component({
   selector: 'app-events-months',

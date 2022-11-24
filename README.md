@@ -3,13 +3,8 @@
 
 - Horarios / Tasks
 - Stripe y sistema de puntos.
-- Eventos todo el día como ordenes: (Watch events - oauth¿?¿?)
-    - Hoja mes evento.
-    - Firmar.
-    - Corregir.
 
 - Registro de meses firmados por cada trabajador.
-- Corrección de firma.
 - HOJA DE FIRMAS con todos los datos maquedatos.
 
 
