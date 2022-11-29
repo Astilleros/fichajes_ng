@@ -33,8 +33,8 @@ export class DashboardComponent {
   user : any = {
     nombre: ''
   };
-  now:Date = new Date();
-  licenseDate: Date | null = null;
+  licenseStatus?: 'active' | 'expired' | 'test' 
+  licensedUntil: Date | null = null;
 
   constructor(
     private Dialogs: MatDialog,
@@ -44,7 +44,14 @@ export class DashboardComponent {
 
   async ngOnInit(): Promise<void> {
     this.user = await firstValueFrom( this.User.profile() );
-    if(this.user.licensedUntil) this.licenseDate = new Date(this.user.licensedUntil);
+    if(this.user.licensedUntil) {
+      this.licensedUntil = new Date(this.user.licensedUntil);
+      const now = new Date();
+      if(this.licensedUntil?.getTime()?? 0 - now.getTime() > 0) this.licenseStatus = 'active'
+      else this.licenseStatus = 'expired'
+    }else {
+      this.licenseStatus = 'test'
+    }
   }
 
   editUserModal?: MatDialogRef<UsersEditComponent>;
