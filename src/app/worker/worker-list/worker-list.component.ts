@@ -40,7 +40,7 @@ export class WorkerListComponent implements OnInit {
   now = new Date();
   workers = new MatTableDataSource<Worker>();
 
-  columnsToDisplay = ['status', 'name', 'mobile', 'email'];
+  columnsToDisplay = ['status', 'mode', 'name', 'mobile', 'email'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: any | null;
 
@@ -87,41 +87,10 @@ export class WorkerListComponent implements OnInit {
       (wli: Worker) => wli._id != deleted._id
     );
   }
-
-  async shareCalendar(worker: Worker): Promise<void> {
-    const updated = await firstValueFrom<Worker>(
-      this.workersService.shareCalendar(worker._id)
-    );
-    if (!updated) return;
-    this.workers.data = this.workers.data.map((wli: Worker) =>
-      wli._id != updated._id
-        ? wli
-        : {
-            ...wli,
-            ...updated,
-          }
-    );
-  }
-
+  
   copyCalendarUrlToClipboard(worker: Worker) {
     this.Clipboard.copy(`https://calendar.google.com/calendar/u/0/r?cid=${worker.calendar}`)
   }
-
-  async unshareCalendar(worker: Worker): Promise<void> {
-    const updated = await firstValueFrom<Worker>(
-      this.workersService.unshareCalendar(worker._id)
-    );
-    if (!updated) return;
-    this.workers.data = this.workers.data.map((wli: Worker) =>
-      wli._id != updated._id
-        ? wli
-        : {
-            ...wli,
-            ...updated,
-          }
-    );
-  }
-
   async dowloadPdf(worker: Worker) {
     let pdf_data = await firstValueFrom(this.workersService.downloadPdf(worker._id, '2022-11-01', '2022-11-30T23:59:59.000Z'));
     const imageName = 'name.pdf';

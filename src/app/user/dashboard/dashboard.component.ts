@@ -19,18 +19,22 @@ export class DashboardComponent {
       if (matches) {
         return [
           { title: 'Perfil', cols: 2, rows: 1 },
-          { title: 'Estrellas', cols: 2, rows: 1 },
+          { title: 'Licencia', cols: 2, rows: 1 },
         ];
       }
 
       return [
         { title: 'Perfil', cols: 1, rows: 1 },
-        { title: 'Estrellas', cols: 1, rows: 1 },
+        { title: 'Licencia', cols: 1, rows: 1 },
       ];
     })
   );
 
-  user: any;
+  user : any = {
+    nombre: ''
+  };
+  now:Date = new Date();
+  licenseDate: Date | null = null;
 
   constructor(
     private Dialogs: MatDialog,
@@ -40,6 +44,7 @@ export class DashboardComponent {
 
   async ngOnInit(): Promise<void> {
     this.user = await firstValueFrom( this.User.profile() );
+    if(this.user.licensedUntil) this.licenseDate = new Date(this.user.licensedUntil);
   }
 
   editUserModal?: MatDialogRef<UsersEditComponent>;
@@ -50,5 +55,10 @@ export class DashboardComponent {
     this.editUserModal.componentInstance.userOut.subscribe((user: User) => {
       this.user = user;
     });
+  }
+
+  async goNewCheckout(){
+    const checkout = await firstValueFrom(this.User.getNewCheckout())
+    window.open(checkout.checkout.url, "_blank");
   }
 }

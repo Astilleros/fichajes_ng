@@ -45,30 +45,30 @@
         </mat-card-content>
         <mat-card-content
           class="dashboard-card-content"
-          *ngIf="card.title == 'Estrellas'"
+          *ngIf="card.title === 'Licencia' && user.licensedUntil === null"
         >
           <h3>
-            <strong>Te quedan 12 Estrellas</strong>
+            <strong>¿Tienes mas de 3 trabajadores?</strong>
           </h3>
           <p>
-            Cada estrella te permitira:
-          </p>
-          <mat-list dense>
-            <mat-list-item>
-              Dar de alta un horario indefinidamente.
-            </mat-list-item>
-            <mat-list-item>
-              Dar de alta un trabajador.
-            </mat-list-item>
-            <mat-list-item>
-              Suscripcion anual de servicio de fichar para 1 trabajador.
-            </mat-list-item>
-          </mat-list>
-          <p>
-            El precio de la estrella es de 1€ y se compran en packs.
+            Subscríbete a la versión PREMIUM durante un año por 50€.
           </p>
           <p>
-            <strong>Compra estrellas!</strong>
+            <button mat-raised-button color="primary" (click)="goNewCheckout()"><mat-icon>add</mat-icon> Subscríbete!</button>
+          </p>
+        </mat-card-content>
+        <mat-card-content
+          class="dashboard-card-content"
+          *ngIf="card.title === 'Licencia' && licenseDate?.getTime()?? 0 - now.getTime() > 0"
+        >
+          <h3>
+            <strong>Tu subscripción esta activa.</strong>
+          </h3>
+          <p>
+            Amplia la subscripción un año mas por 50€!
+          </p>
+          <p>
+            <button mat-raised-button color="primary" (click)="goNewCheckout()"><mat-icon>add</mat-icon> Subscríbete!</button>
           </p>
         </mat-card-content>
       </mat-card>

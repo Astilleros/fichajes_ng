@@ -1,6 +1,6 @@
 export enum workerModes {
   none,
   place,
-  command,
+/*   command, */
   open,
 }
