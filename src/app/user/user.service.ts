@@ -24,6 +24,6 @@ export class UserService {
   }
 
   getNewCheckout(): Observable<any> {
-    return this.http.post(`${API_URL}/stripe`, { responseType: 'json' });
+    return this.http.post(`${API_URL}/stripe`, {},{ responseType: 'json' });
   }
 }
