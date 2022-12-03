@@ -82,7 +82,7 @@
               <mat-icon>content_copy</mat-icon> Copiar url de calendario
             </button>
           </mat-list-item>
-          <mat-list-item *ngIf="element.status !== 2">
+          <mat-list-item *ngIf="element.mode === 0">
             <button
               mat-raised-button
               color="warn"
