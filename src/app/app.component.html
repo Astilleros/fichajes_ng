@@ -33,6 +33,13 @@
       </a>
       <a
         mat-list-item
+        [routerLink]="'/calendarios'"
+        *ngIf="isLoggedIn"
+        (click)="sidenav.toggle()"
+        ><mat-icon>account_circle</mat-icon> Calendarios
+      </a>
+      <a
+        mat-list-item
         [routerLink]="'/login'"
         *ngIf="!isLoggedIn"
         (click)="sidenav.toggle()"

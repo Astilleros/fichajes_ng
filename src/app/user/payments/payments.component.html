@@ -1,0 +1,55 @@
+<table mat-table [dataSource]="checkouts" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Estado</th>
+    <td mat-cell *matCellDef="let checkout">
+        <mat-icon *ngIf="checkout.status === 0" color="warn">link_off</mat-icon>
+        <mat-icon *ngIf="checkout.status === 1" color="primary">link_off</mat-icon>
+        <mat-icon *ngIf="checkout.status === 2" color="success">link</mat-icon>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="enlace">
+    <th mat-header-cell *matHeaderCellDef>Enlace</th>
+    <td mat-cell *matCellDef="let checkout">
+        <button
+          mat-icon-button
+          aria-label="close dialog"
+          mat-dialog-close
+          (click)="go(checkout.checkout.url)"
+        >
+          <mat-icon>open_in_browser</mat-icon>
+        </button></td>
+  </ng-container>
+  
+  <ng-container matColumnDef="factura">
+    <th mat-header-cell *matHeaderCellDef>Factura</th>
+    <td mat-cell *matCellDef="let checkout">
+      <button
+        mat-icon-button
+        aria-label="close dialog"
+        mat-dialog-close
+        (click)="go(checkout.invoice)"
+      >
+        <mat-icon>download</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="createdAt">
+    <th mat-header-cell *matHeaderCellDef>Fecha</th>
+    <td mat-cell *matCellDef="let checkout">{{ checkout.createdAt | date:"dd-MM-YYYY" }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<button
+  mat-icon-button
+  aria-label="close dialog"
+  mat-dialog-close
+  (click)="close()"
+>
+  <mat-icon>close</mat-icon>
+</button>

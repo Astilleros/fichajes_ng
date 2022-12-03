@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'https://ficfac.app/api';
+const API_URL = 'http://localhost:3000/api';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,10 @@ export class UserService {
   }
 
   getNewCheckout(): Observable<any> {
-    return this.http.post(`${API_URL}/stripe`, {},{ responseType: 'json' });
+    return this.http.post(`${API_URL}/stripe`, {}, { responseType: 'json' });
+  }
+
+  getCheckouts():Observable<any> {
+    return this.http.get(`${API_URL}/stripe`, { responseType: 'json' });
   }
 }

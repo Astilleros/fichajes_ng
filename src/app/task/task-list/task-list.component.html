@@ -51,6 +51,9 @@
           <div class="example-element-description">{{ element.dni }}</div>
           <button mat-raised-button color="warn"(click)="openEditDialog( element )"><mat-icon>edit</mat-icon>Edit</button>
 
+          <button mat-raised-button color="warn" (click)="deleteTask(element)">
+            <mat-icon>delete</mat-icon>Eliminar
+          </button>
           
       </div>
     </td>

@@ -24,7 +24,7 @@
                 <mat-icon>edit</mat-icon> Editar
               </button>
               <button  *ngIf="card.title ==='Perfil'" mat-menu-item><mat-icon>delete</mat-icon>Eliminar cuenta</button>
-              <button  *ngIf="card.title ==='Licencia'" mat-menu-item><mat-icon>info</mat-icon>Pagos</button>
+              <button  *ngIf="card.title ==='Licencia'" mat-menu-item (click)="openCheckoutsDialog()"><mat-icon>info</mat-icon>Pagos</button>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>

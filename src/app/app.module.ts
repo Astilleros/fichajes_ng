@@ -42,6 +42,8 @@ import { ChartLinearGaugeComponent } from './chart/chart-linear-gauge/chart-line
 import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { UsersEditComponent } from './user/user-edit/user-edit.component';
 import { MatSelectModule } from '@angular/material/select';
+import { PaymentsComponent } from './user/payments/payments.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { MatSelectModule } from '@angular/material/select';
     EventsMonthsComponent,
     ChartLinearGaugeComponent,
     DashboardComponent,
-    UsersEditComponent
+    UsersEditComponent,
+    PaymentsComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

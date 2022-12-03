@@ -1,0 +1,22 @@
+
+
+tr.calendar-detail-row {
+    height: 0;
+  }
+  .calendar-expanded-row td{
+    padding: 50px 0;
+  }
+  tr.calendar-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  
+  .calendar-row td {
+    border-bottom-width: 0;
+  }
+  
+  .calendar-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  

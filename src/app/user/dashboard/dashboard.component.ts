@@ -7,6 +7,7 @@ import { UsersEditComponent } from '../user-edit/user-edit.component';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
 import { firstValueFrom } from 'rxjs';
+import { PaymentsComponent } from '../payments/payments.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -61,6 +62,13 @@ export class DashboardComponent {
     });
     this.editUserModal.componentInstance.userOut.subscribe((user: User) => {
       this.user = user;
+    });
+  }
+
+  checkoutsModal?: MatDialogRef<PaymentsComponent>;
+  openCheckoutsDialog() {
+    this.checkoutsModal = this.Dialogs.open(PaymentsComponent, {
+      data: this.user,
     });
   }
 

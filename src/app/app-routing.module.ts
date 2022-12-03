@@ -7,6 +7,7 @@ import { WorkersIdComponent } from './worker/worker-edit/worker-edit.component';
 import { WorkerListComponent } from './worker/worker-list/worker-list.component';
 import { AuthGuardService } from './auth/loged.guard';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -35,6 +36,11 @@ const routes: Routes = [
   {
     path: 'tasks/:_id',
     component: TaskListComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'calendarios',
+    component: CalendarComponent,
     canActivate: [AuthGuardService],
   },
   { path: '**', redirectTo: 'login' },

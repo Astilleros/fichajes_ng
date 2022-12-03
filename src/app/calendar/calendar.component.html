@@ -1,0 +1,71 @@
+<table mat-table [dataSource]="calendars" multiTemplateDataRows>
+  <tr mat-header-row *matHeaderRowDef="['id', 'summary', 'shareds_length', 'worker_linked']"></tr>
+
+  <mat-text-column name="id" headerText="ID"></mat-text-column>
+  <mat-text-column name="summary" headerText="Summary"></mat-text-column>
+  <mat-text-column name="shareds_length" headerText="Acls"></mat-text-column>
+  <mat-text-column name="worker_linked" headerText="Worker"></mat-text-column>
+
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp</th>
+    <td mat-cell *matCellDef="let element">
+      <button
+        mat-icon-button
+        aria-label="expand row"
+        (click)="
+          expandedElement = expandedElement === element ? null : element;
+          $event.stopPropagation()
+        "
+      >
+        <mat-icon *ngIf="expandedElement !== element"
+          >keyboard_arrow_down</mat-icon
+        >
+        <mat-icon *ngIf="expandedElement === element"
+          >keyboard_arrow_up</mat-icon
+        >
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td
+      mat-cell
+      *matCellDef="let element"
+      [attr.colspan]="columnsToDisplayWithExpand.length"
+    >
+      <div
+        class="calendar-detail"
+        [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
+      >
+        <!-- EXPAND DATA -->
+        
+        <button mat-raised-button color="warn" (click)="deleteCalendar(element.id)">
+            <mat-icon>delete</mat-icon>Eliminar calendario
+          </button>
+        <mat-list>
+            <mat-list-item *ngFor="let acl of element.shared" >{{ acl.role }} -> {{acl.id}}
+
+                <button mat-raised-button color="warn" (click)="deleteAcl(element.id, acl.id)">
+                    <mat-icon>delete</mat-icon>Eliminar
+                  </button>
+
+            </mat-list-item>
+          </mat-list>
+        <!--  -->
+      </div>
+    </td>
+  </ng-container>
+
+  <tr
+    mat-row
+    *matRowDef="let element; columns: columnsToDisplayWithExpand"
+    class="calendar-row"
+    (click)="expandedElement = expandedElement === element ? null : element"
+  ></tr>
+  <tr
+    mat-row
+    *matRowDef="let element; columns: ['expandedDetail']"
+    class="calendar-detail-row"
+    [class.calendar-expanded-row]="expandedElement === element"
+  ></tr>
+</table>
