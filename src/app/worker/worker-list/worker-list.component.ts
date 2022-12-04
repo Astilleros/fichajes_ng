@@ -91,14 +91,5 @@ export class WorkerListComponent implements OnInit {
   copyCalendarUrlToClipboard(worker: Worker) {
     this.Clipboard.copy(`https://calendar.google.com/calendar/u/0/r?cid=${worker.calendar}`)
   }
-  async dowloadPdf(worker: Worker) {
-    let pdf_data = await firstValueFrom(this.workersService.downloadPdf(worker._id, '2022-11-01', '2022-11-30T23:59:59.000Z'));
-    const imageName = 'name.pdf';
-    let pdf_file = new File([pdf_data], imageName, { type: 'application/pdf' });
-    
-    const fileURL = URL.createObjectURL(pdf_file);
-    console.log(fileURL);
-    
-    window.open(fileURL, '_blank');
-  }
+
 }

@@ -263,7 +263,7 @@ export class EventsMonthsComponent implements OnInit {
   xAxisLabel: string = 'dias';
   showYAxisLabel: boolean = false;
   yAxisLabel: string = 'horas';
-  yAxisTicks: any[] = [0, 4, 6, 8, 9, 10, 11, 12, 13, 14];
+  yAxisTicks: any[] = [0, 2, 4, 6, 8, 9, 10];
   animations: boolean = true;
   showDataLabel: boolean = true;
   colorScheme: string | Color = {
