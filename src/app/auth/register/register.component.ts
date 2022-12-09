@@ -9,15 +9,15 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup = new FormGroup({
-    username: new FormControl('a'),
-    email: new FormControl('a'),
-    password: new FormControl('a'),
-    nombre: new FormControl('a'),
-    dni: new FormControl('a'),
-    mobile: new FormControl('a'),
-    empresa: new FormControl('a'),
-    cif: new FormControl('a'),
-    sede: new FormControl('a'),
+    username: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+    nombre: new FormControl('Introduce tu nombre'),
+    dni: new FormControl('00000000A'),
+    mobile: new FormControl('012345678'),
+    empresa: new FormControl('Introduce el nombre de la empresa'),
+    cif: new FormControl('00000000A'),
+    sede: new FormControl('Introducela dirección de la empresa'),
   });
 
   isSuccessful = false;

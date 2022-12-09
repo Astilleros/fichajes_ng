@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom, Observable } from 'rxjs';
 
-const API_URL = 'https://ficfac.app/api';
+const API_URL = 'http://localhost:3000/api';
 
 @Injectable({
   providedIn: 'root',
